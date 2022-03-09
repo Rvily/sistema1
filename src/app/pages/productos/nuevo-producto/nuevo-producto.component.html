@@ -1,0 +1,90 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <i class="bx bxs-left-arrow btn-lg text-danger" routerLink="/productos/productos"></i>VOLVER
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title mb-4">Crear Nuevo Producto</h4>
+          <span *ngIf="submitted && nuevoProducto.invalid" style="color: brown;font-weight: bold;">TODOS LOS CAMPOS SON OBLIGATORIOS</span>
+          <form class="outer-repeater" [formGroup]="nuevoProducto" (ngSubmit)="agregarEditar()">
+            <div data-repeater-list="outer-group" class="outer">
+              <div data-repeater-item class="outer">
+                <div class="row mb-4">
+                  <label for="taskname" class="col-form-label col-lg-2">Código Producto</label>
+                  <div class="col-lg-4">
+                    <input id="taskname" formControlName="codigo" type="text" class="form-control"
+                      placeholder="Ingresar Código...">
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <label for="taskname" class="col-form-label col-lg-2">Descripción Producto</label>
+                  <div class="col-lg-4">
+                    <input id="taskname" formControlName="descripcion" type="text" class="form-control"
+                      placeholder="Ingresar Descripción...">
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <label for="taskname" class="col-form-label col-lg-2">Cantidad</label>
+                  <div class="col-lg-4">
+                    <input id="taskname" formControlName="stock" type="number" class="form-control"
+                      placeholder="Ingresar Cantidad...">
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <label for="taskname" class="col-form-label col-lg-2">Medida</label>
+                  <div class="col-lg-4">
+                    <input id="taskname" formControlName="medida" type="text" class="form-control"
+                      placeholder="Ingresar Medida...">
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <label for="taskname" class="col-form-label col-lg-2">Marca / Modelo</label>
+                  <div class="col-lg-4">
+                    <input id="taskname" formControlName="marca" type="text" class="form-control"
+                      placeholder="Ingresar Marca/Modelo...">
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <label for="taskname" class="col-form-label col-lg-2">Precio Compra</label>
+                  <div class="col-lg-4">
+                    <input id="taskname" formControlName="precioC" type="number" class="form-control"
+                      placeholder="Ingresar Precio Compra...">
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <label for="taskname" class="col-form-label col-lg-2">Precio Venta</label>
+                  <div class="col-lg-4">
+                    <input id="taskname" formControlName="precioV" type="number" class="form-control"
+                      placeholder="Ingresar Precio Venta...">
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <label for="taskname" class="col-form-label col-lg-2">Observación</label>
+                  <div class="col-lg-4">
+                    <input id="taskname" formControlName="observacion" type="text" class="form-control"
+                      placeholder="Ingresar Alguna Observación">
+                  </div>
+                </div>
+              
+              </div>
+            </div>
+          
+          <div class="row justify-content-end">
+            <div class="col-lg-10">
+              <button type="button" class="btn btn-primary " routerLink="/productos/productos"><i class="bx bx-x"></i> Cancelar</button><span style="color: aliceblue;">---------------</span>
+              <button type="submit" class="btn btn-success"><i class="bx bx-save"></i> Agregar</button>
+            </div>
+           
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->
