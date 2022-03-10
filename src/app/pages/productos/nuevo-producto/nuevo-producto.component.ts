@@ -3,8 +3,8 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { NgbDate, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProductosService } from '../productos/productos.service';
-import { ToastrService } from 'ngx-toastr';
+import { ProductosService } from '../productos.service';
+//import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-nuevo-producto',
   templateUrl: './nuevo-producto.component.html',
@@ -61,7 +61,7 @@ export class NuevoProductoComponent implements OnInit {
     private calendar: NgbCalendar,
     private fb: FormBuilder,
     private router: Router,
-    private toastr: ToastrService,
+   // private toastr: ToastrService,
     private aRoute: ActivatedRoute,
     private productosServices:ProductosService
     )
@@ -104,7 +104,7 @@ export class NuevoProductoComponent implements OnInit {
   }
 
   agregarProducto(){
-    //console.log('estamos en AP ')
+    
     const producto: any = {
       codigo: this.nuevoProducto.value.codigo,
       descripcion: this.nuevoProducto.value.descripcion,
@@ -117,16 +117,14 @@ export class NuevoProductoComponent implements OnInit {
       
     }
     this.loading = true;
-    this.productosServices.agregarProducto(producto).then(() => {
-      this.toastr.success('El empleado fue registrado con exito!', 'Empleado Registrado', {
-        positionClass: 'toast-bottom-right'
-      });
+   this.productosServices.agregarProducto(producto).then(() => {
+     
+     this.loading = false;
+     this.router.navigate(['/productos/productos']);
+   }).catch(error => {
+     console.log(error);
       this.loading = false;
-      this.router.navigate(['/productos/productos']);
-    }).catch(error => {
-      console.log(error);
-      this.loading = false;
-    })
+   })
   }
   editarProducto(id: string){}
 

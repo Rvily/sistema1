@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChildren, QueryList } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
 import { Observable } from 'rxjs';
 
-import { ProductosService } from './productos.service';
+import { ProductosService } from '../productos.service';
 import { ProductosSortableService, SortEvent } from './productos-sortable.directive';
 
 import { ChartType, Activities } from './productos.model';
@@ -29,8 +29,8 @@ export class ProductosComponent implements OnInit {
   @ViewChildren(ProductosSortableService) headers: QueryList<ProductosSortableService>;
 
   constructor(public service: ProductosService) {
-    this.activities$ = service.activities$;
-    this.total$ = service.total$;
+    //this.activities$ = service.activities$;
+    //this.total$ = service.total$;
   }
 
 
@@ -72,7 +72,7 @@ export class ProductosComponent implements OnInit {
         header.direction = '';
       }
     });
-    this.service.sortColumn = column;
-    this.service.sortDirection = direction;
+   // this.service.sortColumn = column;
+   // this.service.sortDirection = direction;
   }
 }
